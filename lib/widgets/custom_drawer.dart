@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
 class CustomDrawer extends StatelessWidget {
+  const CustomDrawer({super.key, required this.onDrawerTap});
+
+  final void Function(String s) onDrawerTap;
+
   @override
   Widget build(BuildContext context) {
-    return const Drawer(
+    return Drawer(
       child: Column(
         children: [
-          DrawerHeader(
+          const DrawerHeader(
             decoration: BoxDecoration(
               gradient: LinearGradient(colors: [
                 Color.fromARGB(255, 19, 106, 146),
@@ -26,9 +30,23 @@ class CustomDrawer extends StatelessWidget {
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
-                )
+                ),
               ],
             ),
+          ),
+          ListTile(
+            onTap: () {
+              onDrawerTap('meals');
+            },
+            leading: const Icon(Icons.restaurant),
+            title: const Text('Meals'),
+          ),
+          ListTile(
+            onTap: () {
+              onDrawerTap('filters');
+            },
+            leading: const Icon(Icons.settings),
+            title: const Text('Filters'),
           )
         ],
       ),

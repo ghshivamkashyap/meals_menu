@@ -28,6 +28,15 @@ class _TabsState extends State<Tabs> {
     }
   }
 
+  void _setScreen(String s) {
+    if (s == 'filters') {
+      print('filters');
+    } else {
+      Navigator.of(context).pop();
+      print('meals');
+    }
+  }
+
   int _currState = 0;
   @override
   Widget build(BuildContext context) {
@@ -48,7 +57,9 @@ class _TabsState extends State<Tabs> {
       appBar: AppBar(
         title: pageTitle,
       ),
-      drawer: CustomDrawer(),
+      drawer: CustomDrawer(
+        onDrawerTap: _setScreen,
+      ),
       body: activePage,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currState,
