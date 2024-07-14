@@ -8,7 +8,7 @@ final theme = ThemeData(
     brightness: Brightness.dark,
     seedColor: const Color.fromARGB(255, 153, 203, 236),
   ),
-  textTheme: GoogleFonts.robotoCondensedTextTheme(),
+  textTheme: GoogleFonts.montserratTextTheme(),
 );
 
 void main() {
